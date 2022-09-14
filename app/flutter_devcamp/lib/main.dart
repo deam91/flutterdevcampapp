@@ -125,10 +125,17 @@ class _MyHomePageState extends State<MyHomePage> {
             '😍 ${name.isEmpty ? "I love" : "$name loves"} this Devcamp 😍',
             style: Theme.of(context).textTheme.headline5,
           ),
-          Text(
-            currentDay == _counter ? "🪙" : "$_counter times ",
-            style: Theme.of(context).textTheme.headline2,
-          ),
+          if (currentDay != _counter)
+            Text(
+              "$_counter times ",
+              style: Theme.of(context).textTheme.headline2,
+            ),
+          if (currentDay == _counter)
+            Image.asset(
+              'assets/images/32.png',
+              height: 60,
+              fit: BoxFit.contain,
+            ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextField(
